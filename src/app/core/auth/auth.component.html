@@ -1,1 +1,62 @@
-<p>auth works!</p>
+<div class="fondoLogin">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col d-lg-block col-md-6 col-lg-6 col-xl-6 ingreso">
+        <mat-tab-group mat-align-tabs="start">
+          <mat-tab label="Ingreso">
+            <form autocomplete="off" [formGroup]="loginForm" style="padding: 7%;">
+              <div class="mb-3">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                  <mat-label>Correo</mat-label>
+                  <input matInput placeholder="Correo" formControlName="email" style="width: 100%;">
+                </mat-form-field>
+              </div>
+              <div class="mb-3">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                  <mat-label>Contraseña</mat-label>
+                  <input matInput placeholder="Contraseña" type="password" formControlName="password"
+                    (keyup.enter)="ingresar()" style="width: 100%;">
+                </mat-form-field>
+              </div>
+              <div class="mb-3">
+                <a routerLink="/inicio">Volver</a>
+              </div>
+              <div class="mb-3 d-grid gap-2 col-6 mx-auto">
+                <button type="button" class="btn btn-outline-primary" [disabled]="loginForm.invalid"
+                  (click)="ingresar()">Ingresar</button>
+              </div>
+            </form>
+          </mat-tab>
+          <mat-tab label="Registro">
+            <form autocomplete="off" [formGroup]="registerForm" style="padding: 7%;">
+              <div class="mb-3">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                  <mat-label>Nombre</mat-label>
+                  <input matInput placeholder="nombres" formControlName="name" style="width: 100%;">
+                </mat-form-field>
+              </div>
+              <div class="mb-3">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                  <mat-label>Correo</mat-label>
+                  <input matInput placeholder="Correo" formControlName="email" style="width: 100%;">
+                </mat-form-field>
+              </div>
+              <div class="mb-3">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                  <mat-label>Contraseña</mat-label>
+                  <input matInput type="password" placeholder="Contraseña" formControlName="password"
+                    style="width: 100%;">
+                </mat-form-field>
+              </div>
+
+              <div class="mb-3 d-grid gap-2 col-6 mx-auto">
+                <button type="button" class="btn btn-outline-primary" [disabled]="registerForm.invalid"
+                  (click)="registrar()">Registrar</button>
+              </div>
+            </form>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>

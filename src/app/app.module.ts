@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,25 +12,27 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './core/auth/state/auth.effects';
 import { StoreModule } from '@ngrx/store';
 import { appReducer } from './store/app.state';
+import { CargandoComponent } from './shared/cargando/cargando.component';
+import { ContenidoModule } from './shared/contenido/contenido.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeadersComponent
-  ],
+  declarations: [AppComponent, HeadersComponent, CargandoComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ContenidoModule,
+    MatSnackBarModule,
+    EffectsModule.forRoot([AuthEffects]),
+    StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production,
       maxAge: 25,
     }),
-    EffectsModule.forRoot([AuthEffects]),
-    StoreModule.forRoot(appReducer),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

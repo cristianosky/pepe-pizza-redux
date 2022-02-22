@@ -1,2 +1,2 @@
-<app-headers></app-headers>
-<router-outlet></router-outlet>
+<app-cargando *ngIf="$showLoading |async"></app-cargando>
+<router-outlet *ngIf="!($showLoading |async)"></router-outlet>
