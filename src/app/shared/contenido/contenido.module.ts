@@ -11,7 +11,6 @@ import { CategoriaEffects } from 'src/app/core/categoria/store/categoria.effects
   imports: [
     CommonModule,
     ContenidoRoutes,
-    EffectsModule.forRoot([CategoriaEffects]),
   ],
 })
 export class ContenidoModule {}

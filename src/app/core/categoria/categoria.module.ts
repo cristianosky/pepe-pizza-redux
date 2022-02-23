@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { CategoriaRoutingModule } from './categoria-routing.module';
 import { CategoriaComponent } from './categoria.component';
+import { EffectsModule } from '@ngrx/effects';
+import { CategoriaEffects } from './store/categoria.effects';
 
 
 @NgModule({
@@ -11,7 +13,8 @@ import { CategoriaComponent } from './categoria.component';
   ],
   imports: [
     CommonModule,
-    CategoriaRoutingModule
+    CategoriaRoutingModule,
+    EffectsModule.forFeature([CategoriaEffects]),
   ]
 })
 export class CategoriaModule { }
