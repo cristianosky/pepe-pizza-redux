@@ -8,6 +8,7 @@ import {
   isAuthenticated,
 } from 'src/app/core/auth/state/auth.selectors';
 import { Categoria } from 'src/app/core/categoria/model/categoria.model';
+import { loadCategoria } from 'src/app/core/categoria/store/categoria.actions';
 import { getCategorias } from 'src/app/core/categoria/store/categoria.selectors';
 import { AppState } from 'src/app/store/app.state';
 import { setLoadingSpinner } from '../state/headers.actions';
@@ -27,10 +28,15 @@ export class ContenidoComponent implements OnInit {
     this.isAuth = this.store.select(isAuthenticated);
     this.User = this.store.select(getUser);
     this.Categoria$ = this.store.select(getCategorias);
+    this.store.dispatch(loadCategoria());
   }
 
   salir() {
     this.store.dispatch(setLoadingSpinner({ state: true }));
     this.store.dispatch(authLogout());
+  }
+
+  console() {
+    console.log(this.Categoria$);
   }
 }

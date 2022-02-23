@@ -6,15 +6,12 @@ import { CategoriaComponent } from './categoria.component';
 import { EffectsModule } from '@ngrx/effects';
 import { CategoriaEffects } from './store/categoria.effects';
 
-
 @NgModule({
-  declarations: [
-    CategoriaComponent
-  ],
+  declarations: [CategoriaComponent],
   imports: [
     CommonModule,
     CategoriaRoutingModule,
-    EffectsModule.forFeature([CategoriaEffects]),
-  ]
+    // EffectsModule.forFeature([CategoriaEffects]),
+  ],
 })
-export class CategoriaModule { }
+export class CategoriaModule {}

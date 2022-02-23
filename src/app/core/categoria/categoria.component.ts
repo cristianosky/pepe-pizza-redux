@@ -2,21 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store/app.state';
-import { loadCategoria } from './store/categoria.actions';
+import {
+  getCategorias,
+  getProductoCat,
+} from 'src/app/core/categoria/store/categoria.selectors';
+import { ActivatedRoute } from '@angular/router';
+import { loadProductosCat } from './store/categoria.actions';
+import { Productos } from './model/categoria.model';
 
 @Component({
   selector: 'app-categoria',
   templateUrl: './categoria.component.html',
-  styleUrls: ['./categoria.component.css']
+  styleUrls: ['./categoria.component.css'],
 })
 export class CategoriaComponent implements OnInit {
-   
-  categorias$!:Observable<any>
+  productos$!: Observable<Productos[]>;
 
-  constructor(private store:Store<AppState>) { }
+  constructor(
+    private store: Store<AppState>,
+    private routeractivete: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    // this.categorias$ = this.store.dispatch(loadCategoria({categoria}))
+    const params: any = this.routeractivete.snapshot.params;
+    this.store.dispatch(loadProductosCat({ id: params.id }));
+    this.productos$ = this.store.select(getProductoCat);
   }
-
 }

@@ -1,1 +1,9 @@
-<p>categoria works!</p>
+<div class="container" *ngIf="(productos$ |async) as productos">
+  <div class="row">
+    <div *ngFor="let producto of productos">
+      {{producto.id}}
+    </div>
+    hola
+
+  </div>
+</div>

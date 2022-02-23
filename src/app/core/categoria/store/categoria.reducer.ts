@@ -1,5 +1,8 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadCategoriaSuccess } from './categoria.actions';
+import {
+  loadCategoriaSuccess,
+  loadProductoCatSuccess,
+} from './categoria.actions';
 import { InitState } from './categoria.state';
 
 const _categoriaReducer = createReducer(
@@ -8,6 +11,12 @@ const _categoriaReducer = createReducer(
     return {
       ...state,
       categoria: action.categria,
+    };
+  }),
+  on(loadProductoCatSuccess, (state, action) => {
+    return {
+      ...state,
+      productos: action.productos,
     };
   })
 );

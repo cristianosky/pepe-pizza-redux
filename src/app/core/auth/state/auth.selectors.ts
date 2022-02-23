@@ -12,8 +12,14 @@ export const isAuthenticated = createSelector(getAunthState, (state) => {
 export const getUser = createSelector(getAunthState, (state) => {
   let body = {
     ...state.user?.perfil,
-    admin: state.user?.perfil.rol == 2 ? false : true,
+    isAdmin: state.user?.perfil.rol == 2 ? false : true,
   };
 
   return body;
+});
+
+export const isAdmin = createSelector(getAunthState, (state) => {
+  return {
+    isAdmin: state.user?.perfil.rol == 2 ? false : true,
+  };
 });
