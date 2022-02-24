@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // apiUrl: 'http://localhost:3000/',
-  apiUrl: 'https://api-pepe-pizza.herokuapp.com',
+  apiUrl: 'https://polar-harbor-69814.herokuapp.com',
 };
 
 /*

@@ -17,6 +17,7 @@ import { ContenidoModule } from './shared/contenido/contenido.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CategoriaEffects } from './core/categoria/store/categoria.effects';
 import { GlobalInterceptor } from './shared/interceptor';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @NgModule({
   declarations: [AppComponent, HeadersComponent, CargandoComponent],
@@ -27,6 +28,7 @@ import { GlobalInterceptor } from './shared/interceptor';
     HttpClientModule,
     ContenidoModule,
     MatSnackBarModule,
+    NzIconModule,
     EffectsModule.forRoot([AuthEffects, CategoriaEffects]),
     StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({
@@ -35,7 +37,6 @@ import { GlobalInterceptor } from './shared/interceptor';
     }),
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'es' },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: GlobalInterceptor,

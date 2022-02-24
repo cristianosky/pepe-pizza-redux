@@ -1,5 +1,35 @@
-<div class="container-fluid p-1 h-100 mt-1">
+<div class="container h-10 p-1 mt-1">
   <div class="row m-0  tb-1 p-1 justify-content-between align-items-center rounded-lg shadow-sm bg-light">
     <h4 class="pt-1">Productos</h4>
   </div>
 </div>
+
+<!-- <section class="hero-section">
+  <div class="card-grid">
+    <a class="card" href="#">
+      <div class="card__background"
+        style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)">
+      </div>
+      <div class="card__content">
+        <p class="card__category">Category</p>
+        <h3 class="card__heading">Example Card Heading</h3>
+      </div>
+    </a>
+  </div>
+</section> -->
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card" *ngFor="let producto of Productos$ |async">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+          content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <button class="btn btn-primary">hola</button> -->
