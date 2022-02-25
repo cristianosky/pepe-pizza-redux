@@ -18,6 +18,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CategoriaEffects } from './core/categoria/store/categoria.effects';
 import { GlobalInterceptor } from './shared/interceptor';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { FormsModule } from '@angular/forms';
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent, HeadersComponent, CargandoComponent],
@@ -29,8 +32,10 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     ContenidoModule,
     MatSnackBarModule,
     NzIconModule,
+    FormsModule,
     EffectsModule.forRoot([AuthEffects, CategoriaEffects]),
     StoreModule.forRoot(appReducer),
+    provideFirebaseApp(() => initializeApp({ apiKey: environment.apiKey })),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production,
       maxAge: 25,

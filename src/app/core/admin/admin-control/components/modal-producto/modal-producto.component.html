@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>Agregar producto</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="container">
+    <div class="row">
+      <form autocomplete="off" [formGroup]="FormAddProc">
+        <div class="mb-3">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="Nombre" formControlName="nombre" style="width: 100%;">
+          </mat-form-field>
+        </div>
+        <div class="mb-3">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Categoria</mat-label>
+            <input matInput placeholder="Categoria" formControlName="categoria" style="width: 100%;">
+          </mat-form-field>
+        </div>
+        <div class="mb-3">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Precio</mat-label>
+            <input matInput placeholder="Precio" formControlName="precio" style="width: 100%;">
+          </mat-form-field>
+        </div>
+        <div class="mb-3">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Descripcion</mat-label>
+            <input matInput placeholder="Descripcion" formControlName="descripcion" style="width: 100%;">
+          </mat-form-field>
+        </div>
+        <div class="mb-3">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Imgen</mat-label>
+            <input matInput placeholder="Imagen" formControlName="img" style="width: 100%;">
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

@@ -6,6 +6,13 @@ export const environment = {
   production: false,
   // apiUrl: 'http://localhost:3000/',
   apiUrl: 'https://polar-harbor-69814.herokuapp.com',
+  apiKey: 'AIzaSyDcFfzYNFfBFYG1lXgl2B7X2WuDH3rBy4M',
+  authDomain: 'uniformes-op.firebaseapp.com',
+  databaseURL: 'https://uniformes-op-default-rtdb.firebaseio.com',
+  projectId: 'uniformes-op',
+  storageBucket: 'uniformes-op.appspot.com',
+  messagingSenderId: '955779096766',
+  appId: '1:955779096766:web:46b24b219fc9238bdd3eef',
 };
 
 /*
