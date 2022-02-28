@@ -27,16 +27,18 @@
             <input matInput placeholder="Descripcion" formControlName="descripcion" style="width: 100%;">
           </mat-form-field>
         </div>
-        <div class="mb-3">
-          <mat-form-field appearance="outline" style="width: 100%;">
-            <mat-label>Imgen</mat-label>
-            <input matInput placeholder="Imagen" formControlName="img" style="width: 100%;">
-          </mat-form-field>
+        <div class="mb-3" style="position: initial; text-align: center;">
+            <input #file type="file" (change)="imgUpload($event)" hidden>
+            <input type="text" formControlName="img" [value]="url|async">
+            <button  class="btn btn-outline-primary" (click)="file.click()">Subir imagen</button>
+            <mat-progress-bar [value]="uploadPercent |async"> </mat-progress-bar>
+            <span>{{(uploadPercent |async) || 0}} %</span>
         </div>
       </form>
     </div>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
+  <button  class="btn btn-outline-primary" (click)="publicar()">Subir imagen</button>
   <button mat-button mat-dialog-close>Cancel</button>
 </mat-dialog-actions>

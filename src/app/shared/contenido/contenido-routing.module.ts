@@ -31,7 +31,7 @@ const routes: Routes = [
   },
   {
     path: 'productos',
-    canActivate: [AdminGuard],
+   /* canActivate: [AdminGuard],*/
     component: ContenidoComponent,
     children: [
       {

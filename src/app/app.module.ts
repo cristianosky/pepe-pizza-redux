@@ -20,7 +20,7 @@ import { GlobalInterceptor } from './shared/interceptor';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { FormsModule } from '@angular/forms';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { FirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent, HeadersComponent, CargandoComponent],
@@ -35,11 +35,12 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
     FormsModule,
     EffectsModule.forRoot([AuthEffects, CategoriaEffects]),
     StoreModule.forRoot(appReducer),
-    provideFirebaseApp(() => initializeApp({ apiKey: environment.apiKey })),
+    provideFirebaseApp(() => initializeApp({ apiKey: environment.fire.apiKey })),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production,
       maxAge: 25,
     }),
+    FirestoreModule
   ],
   providers: [
     {
