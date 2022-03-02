@@ -21,6 +21,11 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { FormsModule } from '@angular/forms';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { FirestoreModule } from '@angular/fire/firestore';
+import { ProductosEffects } from './core/admin/admin-control/store/productos.effects';
+import { MatDialogModule } from '@angular/material/dialog';
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzTableModule } from 'ng-zorro-antd/table';
 
 @NgModule({
   declarations: [AppComponent, HeadersComponent, CargandoComponent],
@@ -32,15 +37,21 @@ import { FirestoreModule } from '@angular/fire/firestore';
     ContenidoModule,
     MatSnackBarModule,
     NzIconModule,
+    NzTableModule,
     FormsModule,
-    EffectsModule.forRoot([AuthEffects, CategoriaEffects]),
+    NzButtonModule,
+    MatDialogModule,
+    NzDrawerModule,
+    EffectsModule.forRoot([AuthEffects, CategoriaEffects, ProductosEffects]),
     StoreModule.forRoot(appReducer),
-    provideFirebaseApp(() => initializeApp({ apiKey: environment.fire.apiKey })),
+    provideFirebaseApp(() =>
+      initializeApp({ apiKey: environment.fire.apiKey })
+    ),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production,
       maxAge: 25,
     }),
-    FirestoreModule
+    FirestoreModule,
   ],
   providers: [
     {

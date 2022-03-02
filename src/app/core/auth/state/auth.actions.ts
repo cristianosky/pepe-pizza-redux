@@ -28,7 +28,7 @@ export const loginStrar = createAction(
 
 export const loginSuccess = createAction(
   LOGIN_SUCCESS,
-  props<{ user: User; redireccion: boolean }>()
+  props<{ user: User | null; redireccion: boolean }>()
 );
 
 //Register

@@ -12,13 +12,18 @@
         <div class="mb-3">
           <mat-form-field appearance="outline" style="width: 100%;">
             <mat-label>Categoria</mat-label>
-            <input matInput placeholder="Categoria" formControlName="categoria" style="width: 100%;">
+            <mat-select placeholder="Categoria" formControlName="categoria">
+              <mat-option *ngFor="let categoria of categorias |async" [value]="categoria.id">
+                {{categoria.nombre}}
+              </mat-option>
+            </mat-select>
+            <input matInput formControlName="categoria" style="width: 100%;">
           </mat-form-field>
         </div>
         <div class="mb-3">
           <mat-form-field appearance="outline" style="width: 100%;">
             <mat-label>Precio</mat-label>
-            <input matInput placeholder="Precio" formControlName="precio" style="width: 100%;">
+            <input matInput type="number" placeholder="Precio" formControlName="precio" style="width: 100%;">
           </mat-form-field>
         </div>
         <div class="mb-3">
@@ -28,17 +33,17 @@
           </mat-form-field>
         </div>
         <div class="mb-3" style="position: initial; text-align: center;">
-            <input #file type="file" (change)="imgUpload($event)" hidden>
-            <input type="text" formControlName="img" [value]="url|async">
-            <button  class="btn btn-outline-primary" (click)="file.click()">Subir imagen</button>
-            <mat-progress-bar [value]="uploadPercent |async"> </mat-progress-bar>
-            <span>{{(uploadPercent |async) || 0}} %</span>
+          <input #file type="file" (change)="imgUpload($event)" hidden>
+          <input type="text" formControlName="img" hidden>
+          <button class="btn btn-outline-primary" (click)="file.click()">Subir imagen</button>
+          <mat-progress-bar [value]="uploadPercent |async"> </mat-progress-bar>
+          <span>{{(uploadPercent |async) || 0}} %</span>
         </div>
       </form>
     </div>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button  class="btn btn-outline-primary" (click)="publicar()">Subir imagen</button>
   <button mat-button mat-dialog-close>Cancel</button>
+  <button class="btn btn-outline-primary" (click)="publicar()" [disabled]="FormAddProc.invalid">Agregar</button>
 </mat-dialog-actions>

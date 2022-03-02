@@ -1,2 +1,35 @@
 <app-cargando *ngIf="$showLoading |async"></app-cargando>
-<router-outlet></router-outlet>
+<router-outlet *ngIf="!($showLoading |async)"></router-outlet>
+<a class="btn-flotante" (click)="open()"><i class="far fa-shopping-cart" style="font-size: 17px;"></i></a>
+
+<nz-drawer [nzClosable]="false" [nzFooter]="footerTpl" [nzVisible]="visible" nzWidth="456" nzPlacement="right"
+  nzTitle="Carrito" (nzOnClose)="close()">
+  <ng-container *nzDrawerContent>
+    <nz-table #basicTable [nzData]="datoscarritos">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{data.index}}</td>
+          <td>{{data.nombre}}</td>
+          <td>{{data.cantidad}}</td>
+          <td>{{data.precio}}</td>
+          <td><i class="fas fa-trash" style="color: red; cursor: pointer;" (click)="deleteproducto(data.id)"></i></td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </ng-container>
+  <ng-template #footerTpl>
+    <div style="float: right">
+      <button nz-button style="margin-right: 8px;" (click)="close()">Seguir comprando</button>
+      <button nz-button nzType="primary" (click)="close()">Procesar compra</button>
+    </div>
+  </ng-template>
+</nz-drawer>

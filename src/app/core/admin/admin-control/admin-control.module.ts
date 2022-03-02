@@ -17,7 +17,7 @@ import { environment } from 'src/environments/environment';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [AdminControlComponent, ModalProductoComponent],
@@ -35,10 +35,9 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
     NzButtonModule,
     NzIconModule,
     MatProgressBarModule,
-    EffectsModule.forFeature([ProductosEffects]),
     AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.fire)
-    
+    AngularFireModule.initializeApp(environment.fire),
+    MatSelectModule,
   ],
 })
 export class AdminControlModule {}

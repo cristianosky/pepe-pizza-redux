@@ -6,7 +6,7 @@ import { setLoadingSpinner } from 'src/app/shared/state/headers.actions';
 import { AppState } from 'src/app/store/app.state';
 import { ModalProductoComponent } from './components/modal-producto/modal-producto.component';
 import { Productos } from './model/productos.model';
-import { loadProductos } from './store/productos.actions';
+import { deleteProducto, loadProductos } from './store/productos.actions';
 import { getProductos } from './store/productos.selectors';
 
 @Component({
@@ -28,5 +28,10 @@ export class AdminControlComponent implements OnInit {
       width: '900px',
       data,
     });
+  }
+
+  eliminarProductos(id: any) {
+    this.store.dispatch(setLoadingSpinner({ state: true }));
+    this.store.dispatch(deleteProducto({ id }));
   }
 }

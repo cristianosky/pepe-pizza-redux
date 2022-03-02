@@ -1,1 +1,62 @@
-hola
+<div class="imageninicio">
+  <div class="color-back" style="width: 100%; height: 100%; background: #0000003f;">
+    <div class="contener-inicio">
+      <h1 style="color:rgb(255, 255, 255); font-size: 37px;">Bienvenidos a pepes comida rapida</h1>
+      <i class="fas fa-chevron-down animate__fadeInDown" style="font-size: 60px; margin-top: 37px;"></i>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4" *ngFor="let producto of productos$ |async">
+    <div class="flip-card-container" style="--hue: 220">
+      <div class="flip-card" style="right: 13px;">
+        <div class="card-front">
+          <figure>
+            <div class="img-bg"></div>
+            <img [src]="producto.imagen" alt="Brohm Lake">
+            <figcaption>{{producto.nombre}}</figcaption>
+          </figure>
+          <ul>
+            <li>{{producto.descripcion}}</li>
+          </ul>
+        </div>
+        <div class="card-back">
+          <figure>
+            <div class="img-bg"></div>
+            <img [src]="producto.imagen" alt="Brohm Lake">
+          </figure>
+
+          <button (click)="addCarrito(producto)" *ngIf="loguado|async">Agregar</button>
+          <button (click)="fail()" *ngIf="!(loguado|async)">Agregar</button>
+
+          <div class="design-container">
+            <span class="design design--1"></span>
+            <span class="design design--2"></span>
+            <span class="design design--3"></span>
+            <span class="design design--4"></span>
+            <span class="design design--5"></span>
+            <span class="design design--6"></span>
+            <span class="design design--7"></span>
+            <span class="design design--8"></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- /flip-card-container -->
+  </div>
+</div>
+
+<div class="seg-div">
+  <div style="background-color: #00000059;">
+    <div class="container" style="padding: 8%;">
+      <div class="row">
+        <h1 style="color: white;">¿Por que escoger pepe comida rapida?</h1>
+        <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi dolore reprehenderit
+          animi doloremque delectus molestias, beatae necessitatibus aut voluptatem iusto nam debitis corporis quibusdam
+          quia neque provident vel iste commodi.</p>
+      </div>
+    </div>
+  </div>
+</div>

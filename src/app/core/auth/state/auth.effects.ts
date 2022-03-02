@@ -111,6 +111,7 @@ export class AuthEffects {
         map((action) => {
           this.store.dispatch(setLoadingSpinner({ state: false }));
           this._authService.logout();
+          this.store.dispatch(loginSuccess({ user: null, redireccion: false }));
           this.router.navigate(['auth']);
         })
       );

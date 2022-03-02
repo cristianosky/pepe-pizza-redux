@@ -14,7 +14,8 @@ export class GlobalInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const token = localStorage.getItem('token');
+    const tokena: any = localStorage.getItem('token');
+    const token = JSON.parse(tokena);
     if (token) {
       const headers = new HttpHeaders({
         Authorization: token,
